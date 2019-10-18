@@ -1,0 +1,39 @@
+{
+  "Data": [
+    {
+      "id": 1,
+      "name": "City 1",
+      "city": 1,
+      "category": 1,
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "City 2",
+      "city": 2,
+      "category": 2,
+      "price": 200
+    },
+    {
+      "id": 3,
+      "name": "City 3",
+      "city": 3,
+      "category": 3,
+      "price": 300
+    },
+    {
+      "id": 4,
+      "name": "City 4",
+      "city": 4,
+      "category": 4,
+      "price": 400
+    },
+    {
+      "id": 5,
+      "name": "City 6",
+      "city": 6,
+      "category": 6,
+      "price": 600
+    }
+  ]
+}

@@ -2,113 +2,46 @@
 <main>
   <div class="wrapper clear">
     <div class="sidebar">
-        <aside class="filters">
-          <div class="filter-item">
-            <h3>city</h3>
-            <select name="city" id="city">
-              <option>London</option>
-              <option selected>Brussel</option>
-              <option>Paris</option>
-            </select>
-          </div>
-          <div class="filter-item">
-            <h3>categories</h3>
-            <ul>
-              <li>
-                <label>
-                  <input type="checkbox">
-                  category 1
-                </label> 
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox">
-                  category 2
-                </label> 
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox">
-                  category 3
-                </label> 
-              </li>
-            </ul>
-          </div>
-          <div class="filter-item">
-            <h3>price</h3>
-          </div>
-        </aside>
+      <aside class="filters">
+        <div class="filter-item">
+          <h3>city</h3>
+          <select name="city" id="city" [(ngModel)]="selected" (ngModelChange)="selectCity(selected)">
+            <option *ngFor="let city of City; let i = index" [value]="city.id">{{city.name}}</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <h3>categories</h3>
+          <ul>
+            <li *ngFor="let category of Category">
+              <label>
+                <input type="checkbox" [value]="category.id" (change)="selectedCategory()">
+                {{category.name}}
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="filter-item">
+          <h3>price</h3>
+        </div>
+      </aside>
     </div>
     <div class="content">
       <ul class="product-list">
-        <li class="product-item">
+        <li class="product-item" *ngFor="let data of selectedData">
           <a href="#" class="product-item__anchor">
             <div class="product-item__top">
-              <img class="product-item__image" src="../assets//images/product-item.jpg" alt="Product image">
-              <div class="product-item__city">London</div>
+              <img class="product-item__image" src="../assets/images/product-item.jpg" alt="Product image">
+              <div class="product-item__city">{{data.city}}</div>
             </div>
             <div class="product-item__bottom clear">
-              <div class="product-item__name">Affiliate Marketing - A Beginner's Guide to Earning Online</div>
-              <div class="product-item__category">Architecture</div>
-              <div class="product-item__price">$115</div>
+              <div class="product-item__name">{{data.name}}</div>
+              <div class="product-item__category">{{data.category}}</div>
+              <div class="product-item__price">${{data.price}}</div>
             </div>
           </a>
         </li>
-        <li class="product-item">
-          <a href="#" class="product-item__anchor">
-            <div class="product-item__top">
-              <img class="product-item__image" src="../assets//images/product-item.jpg" alt="Product image">
-              <div class="product-item__city">London</div>
-            </div>
-            <div class="product-item__bottom clear">
-              <div class="product-item__name">Affiliate Marketing - A Beginner's Guide to Earning Online</div>
-              <div class="product-item__category">Architecture</div>
-              <div class="product-item__price">$115</div>
-            </div>
-          </a>
-        </li>
-        <li class="product-item">
-          <a href="#" class="product-item__anchor">
-            <div class="product-item__top">
-              <img class="product-item__image" src="../assets//images/product-item.jpg" alt="Product image">
-              <div class="product-item__city">London</div>
-            </div>
-            <div class="product-item__bottom clear">
-              <div class="product-item__name">Affiliate Marketing - A Beginner's Guide to Earning Online</div>
-              <div class="product-item__category">Architecture</div>
-              <div class="product-item__price">$115</div>
-            </div>
-          </a>
-        </li>
-
-        <li class="product-item">
-          <a href="#" class="product-item__anchor">
-            <div class="product-item__top">
-              <img class="product-item__image" src="../assets//images/product-item.jpg" alt="Product image">
-              <div class="product-item__city">London</div>
-            </div>
-            <div class="product-item__bottom clear">
-              <div class="product-item__name">Affiliate Marketing - A Beginner's Guide to Earning Online</div>
-              <div class="product-item__category">Architecture</div>
-              <div class="product-item__price">$115</div>
-            </div>
-          </a>
-        </li>
-        <li class="product-item">
-            <a href="#" class="product-item__anchor">
-              <div class="product-item__top">
-                <img class="product-item__image" src="../assets//images/product-item.jpg" alt="Product image">
-                <div class="product-item__city">London</div>
-              </div>
-              <div class="product-item__bottom clear">
-                <div class="product-item__name">Affiliate Marketing - A Beginner's Guide to Earning Online</div>
-                <div class="product-item__category">Architecture</div>
-                <div class="product-item__price">$115</div>
-              </div>
-            </a>
-          </li>
-        </ul>
+      </ul>
     </div>
   </div>
 </main>
-<footer></footer> 
+<footer></footer>
